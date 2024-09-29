@@ -26,15 +26,11 @@ if domain:
 
 SQLALCHEMY_DATABASE_URL = URI
 
-# print(f"{SQLALCHEMY_DATABASE_URL=}")
-
 assert SQLALCHEMY_DATABASE_URL is not None, "SQLALCHEMY_DATABASE_URL UNDEFINED"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 DBSession = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-
-# Dependency
 def get_db():
     db = DBSession()
     try:
